@@ -124,7 +124,16 @@ function extractTransactionBlocks(content: string): string[] {
     }
   }
 
-  return blocks;
+  if (blocks.length > 0) {
+    return blocks;
+  }
+
+  const parts = content.split(/<STMTTRN>/i);
+  return parts.slice(1).map((part) => {
+    const nextTxn = part.search(/<STMTTRN>/i);
+    const segment = nextTxn >= 0 ? part.slice(0, nextTxn) : part;
+    return segment.split(/<\/STMTTRN>/i)[0] ?? segment;
+  });
 }
 
 function extractStatementSections(content: string): string[] {

@@ -18,7 +18,18 @@ export function HeroSection() {
             machine, maps every STMTTRN row, and gives you a file you can open in Excel or Google
             Sheets — no signup, no cloud upload.
           </p>
-          <ul className="mt-8 space-y-3 text-sm text-ink">
+          <p className="mt-6 text-sm text-ink-muted">
+            Try the{" "}
+            <a
+              href="/sample-bank-export.ofx"
+              download
+              className="font-medium text-copper underline-offset-2 hover:underline focus-ring rounded-sm"
+            >
+              sample bank file
+            </a>{" "}
+            if you want to test without your own data.
+          </p>
+          <ul className="mt-6 space-y-3 text-sm text-ink">
             <li className="flex gap-3">
               <span className="mt-0.5 text-copper" aria-hidden>
                 ✓
